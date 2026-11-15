@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>John Benedict Mateo, software engineer and mobile developer</title>
+<meta name="description" content="John Benedict Mateo is a software engineer and senior mobile developer working in native Android and Kotlin Multiplatform. Projects and contact links.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F4F6FA;
+    --raised: #FFFFFF;
+    --ink: #10182B;
+    --muted: #556079;
+    --line: #D5DBE7;
+    --accent: #2743E0;
+    --accent-ink: #FFFFFF;
+    --mark: #FFD166;
+    --frame: #10182B;
+    --band: #10182B;
+    --band-ink: #F4F6FA;
+    --band-muted: #B7C0D4;
+    --band-accent: #9DB0FF;
+    --display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+    --body: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #0D1322;
+      --raised: #151D31;
+      --ink: #E9EDF6;
+      --muted: #9BA6BE;
+      --line: #2A344C;
+      --accent: #9DB0FF;
+      --accent-ink: #0D1322;
+      --mark: #FFD166;
+      --frame: #3A4663;
+      --band: #1A2440;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #0D1322;
+    --raised: #151D31;
+    --ink: #E9EDF6;
+    --muted: #9BA6BE;
+    --line: #2A344C;
+    --accent: #9DB0FF;
+    --accent-ink: #0D1322;
+    --mark: #FFD166;
+    --frame: #3A4663;
+    --band: #1A2440;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--accent); text-underline-offset: 0.18em; }
+  a:focus-visible, button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
+
+  /* Intro band */
+  .band { background: var(--band); color: var(--band-ink); }
+  .band a:focus-visible, .band button:focus-visible { outline-color: var(--band-accent); }
+
+  /* Top bar */
+  .top {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 1.25rem; padding-bottom: 1.25rem;
+  }
+  .top-name { font-family: var(--display); font-weight: 700; font-size: 1.05rem; }
+  .theme-btn {
+    font: inherit; font-size: 0.9rem; color: var(--band-ink);
+    background: none; border: 1px solid var(--band-muted); border-radius: 999px;
+    padding: 0.35rem 0.9rem; cursor: pointer;
+  }
+  .theme-btn:hover { border-color: var(--band-ink); }
+
+  /* Intro */
+  .intro { padding-top: clamp(2rem, 7vw, 5rem); padding-bottom: clamp(2.5rem, 7vw, 5rem); }
+  .intro h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(2.9rem, 11vw, 7.25rem);
+    line-height: 0.92;
+    letter-spacing: -0.035em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .intro .role {
+    font-family: var(--display); font-weight: 500;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    line-height: 1.25;
+    margin: 1.5rem 0 0;
+  }
+  .intro .about { max-width: 38rem; margin: 1.25rem 0 0; color: var(--band-muted); }
+  .contact { display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 2rem 0 0; padding: 0; list-style: none; }
+  .contact a {
+    display: inline-flex; align-items: center; gap: 0.55rem;
+    padding: 0.7rem 1.1rem;
+    border: 1.5px solid var(--band-ink); border-radius: 10px;
+    color: var(--band-ink); text-decoration: none; font-weight: 700;
+    overflow-wrap: anywhere;
+  }
+  .contact a:hover { background: var(--band-ink); color: var(--band); }
+  .contact li:first-child a { background: var(--band-accent); border-color: var(--band-accent); color: var(--band); }
+  .contact li:first-child a:hover { background: var(--band-ink); border-color: var(--band-ink); }
+  .contact svg { width: 1.15rem; height: 1.15rem; flex: none; fill: currentColor; }
+
+  /* Section headings */
+  .section-head {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 1.5rem;
+    padding-top: clamp(2.5rem, 6vw, 4rem);
+  }
+  .section-head h2 {
+    font-family: var(--display); font-weight: 800;
+    font-size: clamp(2.25rem, 6vw, 3.5rem); line-height: 1.1; letter-spacing: -0.02em;
+    margin: 0;
+  }
+  .section-head p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
+  /* Categories */
+  .category { padding-top: clamp(2rem, 5vw, 3rem); }
+  .cat-head {
+    display: flex; align-items: center; gap: 1rem;
+    margin: 0;
+    font-family: var(--display); font-weight: 700; font-size: 1.25rem; line-height: 1.2;
+  }
+  .cat-head span {
+    background: var(--mark); color: #10182B;
+    padding: 0.35rem 0.9rem; border-radius: 8px;
+    white-space: nowrap;
+  }
+  .cat-head::after { content: ""; flex: 1; height: 2px; background: var(--ink); }
+  .more-head { margin: 2rem 0 0; font-family: var(--display); font-weight: 700; font-size: 1.1rem; }
+
+  /* Projects */
+  .project:last-child { border-bottom: 0; }
+  .project {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2rem;
+    padding: clamp(2rem, 5vw, 3.5rem) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  @media (min-width: 52rem) {
+    .project { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3.5rem; align-items: center; }
+  }
+  .project h4 {
+    font-family: var(--display); font-weight: 700;
+    font-size: clamp(1.75rem, 4.5vw, 2.6rem); line-height: 1.05; letter-spacing: -0.025em;
+    margin: 0;
+  }
+  .project .kind { margin: 0.5rem 0 0; color: var(--muted); font-size: 0.95rem; }
+  .project .summary { margin: 1rem 0 0; max-width: 34rem; }
+  .project ul.points { margin: 1rem 0 0; padding-left: 1.15rem; max-width: 34rem; color: var(--muted); }
+  .project ul.points li { margin-top: 0.4rem; }
+  .project ul.points li::marker { color: var(--accent); }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1.25rem 0 0; padding: 0; list-style: none; }
+  .tags li {
+    font-size: 0.85rem; line-height: 1.2;
+    padding: 0.3rem 0.6rem; border-radius: 6px;
+    background: var(--raised); border: 1px solid var(--line);
+  }
+  .repo-link { display: inline-block; margin-top: 1.25rem; font-weight: 700; }
+
+  .shots { display: flex; justify-content: center; align-items: flex-start; gap: 1rem; }
+  .phone {
+    width: min(44%, 13.5rem);
+    border: 6px solid var(--frame);
+    border-radius: 1.6rem;
+    overflow: hidden;
+    background: var(--frame);
+  }
+  .phone + .phone { margin-top: 2.5rem; }
+  .phone img { width: 100%; height: auto; }
+  .screen {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-top: 1.4rem solid var(--frame);
+    border-radius: 0.6rem;
+    overflow: hidden;
+    background: var(--raised);
+  }
+  .screen img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+
+  .phone.art { border: 1px solid var(--line); border-radius: 1rem; background: none; }
+
+  /* Earlier work */
+  .earlier { list-style: none; margin: 0; padding: 0; }
+  .earlier li {
+    display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.25rem 2rem;
+    padding: 1.25rem 0; border-bottom: 1px solid var(--line);
+  }
+  @media (min-width: 52rem) {
+    .earlier li { grid-template-columns: 16rem minmax(0, 1fr) auto; align-items: baseline; }
+  }
+  .earlier a { font-family: var(--display); font-weight: 700; font-size: 1.25rem; }
+  .earlier p { margin: 0; color: var(--muted); }
+  .earlier time { color: var(--muted); font-size: 0.95rem; white-space: nowrap; }
+
+  .block { padding-top: clamp(2.5rem, 6vw, 4.5rem); }
+  .work-head { border-top: 2px solid var(--ink); padding-top: 1rem; }
+  .work-head h2 { font-weight: 700; font-size: clamp(1.6rem, 4vw, 2.25rem); }
+  .jobs {
+    list-style: none; margin: 1.5rem 0 0; padding: 0;
+    display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  }
+  .jobs li {
+    background: var(--raised); border: 1px solid var(--line); border-radius: 1rem;
+    padding: 1.5rem;
+  }
+  .jobs .when { margin: 0; color: var(--muted); font-size: 0.9rem; }
+  .jobs h3 { margin: 0.35rem 0 0; font-family: var(--display); font-weight: 700; font-size: 1.5rem; line-height: 1.15; letter-spacing: -0.015em; }
+  .jobs .title { margin: 0.15rem 0 0; font-weight: 700; color: var(--accent); }
+  .jobs li p:last-child { margin: 0.9rem 0 0; color: var(--muted); }
+
+  .cta {
+    margin-top: clamp(3rem, 8vw, 6rem);
+    background: var(--band); color: var(--band-ink);
+    padding: clamp(3rem, 9vw, 6.5rem) 0 2.5rem;
+  }
+  .cta h2 {
+    font-family: var(--display); font-weight: 800;
+    font-size: clamp(3rem, 12vw, 7.25rem); line-height: 0.92; letter-spacing: -0.035em;
+    margin: 0;
+  }
+  .cta .lead { margin: 1.5rem 0 0; max-width: 32rem; font-size: 1.15rem; color: var(--band-muted); }
+  .cta .mail {
+    display: inline-block; margin-top: 1.75rem;
+    background: var(--band-accent); color: var(--band); text-decoration: none;
+    font-family: var(--display); font-weight: 700; font-size: clamp(1.15rem, 4vw, 1.9rem); line-height: 1.2;
+    padding: 0.9rem 1.4rem; border-radius: 12px;
+    overflow-wrap: anywhere;
+  }
+  .cta .mail:hover { background: var(--band-ink); }
+  .cta-links { list-style: none; display: flex; flex-wrap: wrap; gap: 0.75rem; margin: 1.25rem 0 0; padding: 0; }
+  .cta-links a {
+    display: inline-block; padding: 0.6rem 1.1rem;
+    border: 1.5px solid var(--band-ink); border-radius: 10px;
+    color: var(--band-ink); text-decoration: none; font-weight: 700;
+  }
+  .cta-links a:hover { background: var(--band-ink); color: var(--band); }
+  .cta a:focus-visible { outline-color: var(--band-accent); }
+  .cta .small { margin: 3rem 0 0; color: var(--band-muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+
+<div class="band">
+<header class="wrap top">
+  <span class="top-name">JB Mateo</span>
+  <button class="theme-btn" id="theme" type="button">Dark mode</button>
+</header>
+
+<section class="wrap intro">
+    <h1>John Benedict Mateo</h1>
+    <p class="role">Software engineer and senior mobile developer, native and multiplatform</p>
+    <p class="about">
+      I build mobile apps for Android and iOS: native Android in Kotlin and Jetpack Compose, and
+      multiplatform apps with Kotlin Multiplatform and React Native. Over 9+ years I have taken consumer apps
+      from architecture to store release.
+    </p>
+    <p class="about">
+      As a software engineer, I start with the problem before the code: I weigh the pros and cons of each
+      architecture and technology, pick the approach that fits the product and the team, and back it with
+      automated tests and CI.
+    </p>
+    <ul class="contact">
+      <li><a href="mailto:jbmateo05@gmail.com">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm9 8.2L4.6 7H4v1.3l8 6.6 8-6.6V7h-.6L12 13.2z"/></svg>
+        jbmateo05@gmail.com</a></li>
+      <li><a href="https://github.com/jbmateo" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+        github.com/jbmateo</a></li>
+      <li><a href="https://www.linkedin.com/in/johnbenedictmateo" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn</a></li>
+    </ul>
+  </section>
+</div>
+
+<main>
+
+  <section class="wrap" aria-labelledby="projects">
+    <div class="section-head">
+      <h2 id="projects">Projects</h2>
+    </div>
+
+    <section class="category" aria-labelledby="cat-mobile">
+      <h3 class="cat-head" id="cat-mobile"><span>Mobile</span></h3>
+    <article class="project">
+      <div>
+        <h4>Session</h4>
+        <p class="kind">Private messenger on Google Play; Senior Android Developer through Teamified, 2025 to 2026</p>
+        <p class="summary">An open-source, privacy-focused messenger with end-to-end encryption and no phone number needed to sign up. It has 5M+ downloads on Google Play, and I worked on its Android app.</p>
+        <ul class="points">
+          <li>Helped raise the app to a 4.8-star rating, now from 40.3K reviews, and improved its crash-free rate by fixing user-reported bugs.</li>
+          <li>Refactored legacy code into a modular MVVM architecture and moved XML screens to Jetpack Compose with StateFlow.</li>
+          <li>Cut APK size by 30% with R8 and ProGuard shrinking rules, and wrote unit tests with JUnit and MockK.</li>
+        </ul>
+        <ul class="tags"><li>Kotlin</li><li>Java</li><li>Jetpack Compose</li><li>Hilt</li><li>Room</li><li>JUnit</li><li>MockK</li></ul>
+        <a class="repo-link" href="https://play.google.com/store/apps/details?id=network.loki.messenger&amp;hl=en" target="_blank" rel="noopener">View Session on Google Play</a>
+      </div>
+      <div class="shots">
+        <div class="phone art"><img src="assets/session-signup.png" width="540" height="1169" loading="lazy" alt="Session welcome screen: sign up without a phone number"></div>
+        <div class="phone art"><img src="assets/session-chats.png" width="540" height="1169" loading="lazy" alt="Session conversation list with direct chats, a group and a community"></div>
+      </div>
+    </article>
+    <article class="project">
+      <div>
+        <h4>PlayFriends</h4>
+        <p class="kind">Voice chat app on Google Play, built at MetaverseGo from 2022 to 2025</p>
+        <p class="summary">A social app where gamers meet in live voice rooms, chat and find people to play with. I was its main developer and built it in React Native.</p>
+        <ul class="points">
+          <li>Live voice rooms run on the Agora SDK, so people can join and talk in real time.</li>
+          <li>Redesigning the Firebase database structure made chat 20% faster and able to grow with the user base.</li>
+          <li>Web3 wallet sign-in and payments go through WalletConnect.</li>
+          <li>Reached 10,000+ monthly users, and holds 4.7 stars from 64 reviews on Google Play.</li>
+        </ul>
+        <ul class="tags"><li>React Native</li><li>JavaScript</li><li>Redux</li><li>Firebase</li><li>Agora</li><li>WalletConnect</li></ul>
+        <a class="repo-link" href="https://play.google.com/store/apps/details?id=gg.playfriends.android&amp;hl=en" target="_blank" rel="noopener">View PlayFriends on Google Play</a>
+      </div>
+      <div class="shots">
+        <div class="phone art"><img src="assets/playfriends-lobbies.png" width="540" height="960" loading="lazy" alt="PlayFriends public lobbies list with Join buttons"></div>
+        <div class="phone art"><img src="assets/playfriends-room.png" width="540" height="960" loading="lazy" alt="PlayFriends live voice room with a host, eight speakers and chat"></div>
+      </div>
+    </article>
+    <article class="project">
+      <div>
+        <h4>Commute Notifier</h4>
+        <p class="kind">Native Android app, updated <time datetime="2026-10-21">21 Oct 2026</time></p>
+        <p class="summary">Tells you when to leave so you arrive on time. You set an "arrive by" trip, such as Office by 9:00 on weekdays, and the app checks the route in the background and notifies you.</p>
+        <ul class="points">
+          <li>Driving uses live traffic from the Google Routes API; transit uses its schedules.</li>
+          <li>Each trip gets an early check about an hour ahead and a final check 15 minutes before leave-by.</li>
+          <li>Runs entirely on the phone with WorkManager. There is no backend, and a demo mode works without an API key.</li>
+        </ul>
+        <ul class="tags"><li>Kotlin</li><li>Jetpack Compose</li><li>WorkManager</li><li>Routes API</li><li>Places API</li></ul>
+        <a class="repo-link" href="https://github.com/jbmateo/commute-notifier" target="_blank" rel="noopener">View commute-notifier on GitHub</a>
+      </div>
+      <div class="shots">
+        <div class="phone"><img src="assets/commute-list.png" width="432" height="960" loading="lazy" alt="Trips list with a transit trip and a driving trip"></div>
+        <div class="phone"><img src="assets/commute-drive.png" width="432" height="960" loading="lazy" alt="Test result: leave by 8:10 AM, 45 minutes with traffic"></div>
+      </div>
+    </article>
+    <article class="project">
+      <div>
+        <h4>Budget Tracker</h4>
+        <p class="kind">iPhone and Android app, updated <time datetime="2026-10-21">21 Oct 2026</time></p>
+        <p class="summary">An offline-first budget tracker with daily, weekly and monthly budgets. Money you don't spend rolls into the next period, and overspending is taken off it.</p>
+        <ul class="points">
+          <li>The rollover is recomputed from expense and budget history every time and never stored, so editing an old expense corrects every later number.</li>
+          <li>One shared Kotlin module holds the domain rules, SQLDelight repositories and ViewModels.</li>
+          <li>SwiftUI on iOS and Compose with Material 3 on Android. All data stays in local SQLite.</li>
+        </ul>
+        <ul class="tags"><li>Kotlin Multiplatform</li><li>SwiftUI</li><li>Jetpack Compose</li><li>SQLDelight</li><li>Koin</li></ul>
+        <a class="repo-link" href="https://github.com/jbmateo/budget-tracker" target="_blank" rel="noopener">View budget-tracker on GitHub</a>
+      </div>
+      <div class="shots">
+        <div class="phone"><img src="assets/budget-ios.png" width="600" height="1304" loading="lazy" alt="Budget Tracker home screen on iPhone"></div>
+        <div class="phone"><img src="assets/budget-android.png" width="600" height="1333" loading="lazy" alt="Budget Tracker home screen on Android"></div>
+      </div>
+    </article>
+    <article class="project">
+      <div>
+        <h4>Habit Tracker</h4>
+        <p class="kind">iPhone and Android app, updated <time datetime="2026-10-19">19 Oct 2026</time></p>
+        <p class="summary">An offline-first habit tracker with streaks, weekday schedules, a calendar and reminders, built for my own daily use.</p>
+        <ul class="points">
+          <li>Domain logic, data layer and ViewModels are shared; the UI is SwiftUI on iOS and Compose on Android.</li>
+          <li>Reminders fire only on scheduled days, skip habits already done, and offer "Mark done" on the notification.</li>
+          <li>An architecture test fails the build if a layer imports something it should not.</li>
+        </ul>
+        <ul class="tags"><li>Kotlin Multiplatform</li><li>SwiftUI</li><li>Jetpack Compose</li><li>Notifications</li></ul>
+        <a class="repo-link" href="https://github.com/jbmateo/habit-tracker" target="_blank" rel="noopener">View habit-tracker on GitHub</a>
+      </div>
+      <div class="shots">
+        <div class="phone"><img src="assets/habit-ios.png" width="460" height="1000" loading="lazy" alt="Habit Tracker Today screen on iPhone"></div>
+        <div class="phone"><img src="assets/habit-android.png" width="450" height="1000" loading="lazy" alt="Habit Tracker Today screen on Android"></div>
+      </div>
+    </article>
+      <p class="more-head">More Android work on GitHub</p>
+    <ul class="earlier">
+      <li>
+        <a href="https://github.com/jbmateo/Weather-App-demo" target="_blank" rel="noopener">Weather App demo</a>
+        <p>Android weather app with Compose, clean MVVM, Room, Hilt and Retrofit on the OpenWeather API.</p>
+        <time datetime="2026-06">Jun 2026</time>
+      </li>
+      <li>
+        <a href="https://github.com/jbmateo/CurrencyExchanger" target="_blank" rel="noopener">Currency Exchanger</a>
+        <p>Kotlin app that converts between currencies with commission fees and keeps a multi-currency wallet.</p>
+        <time datetime="2025-03">Mar 2025</time>
+      </li>
+    </ul>
+    </section>
+
+    <section class="category" aria-labelledby="cat-ai">
+      <h3 class="cat-head" id="cat-ai"><span>AI and web</span></h3>
+    <article class="project">
+      <div>
+        <h4>RAG Eval Lab</h4>
+        <p class="kind">Research tool, updated <time datetime="2026-10-19">19 Oct 2026</time></p>
+        <p class="summary">Evaluation and regression testing for retrieval-augmented generation systems, so a change is judged by measurement and not by a few good-looking demos.</p>
+        <ul class="points">
+          <li>Each experiment states its hypothesis before it runs and is scored case by case on a versioned dataset.</li>
+          <li>Comparisons use paired bootstrap intervals and an exact McNemar test, with a pass or fail gate for CI.</li>
+          <li>A hard budget cap and a content cache kept six hypotheses to $0.85 of API spend.</li>
+        </ul>
+        <ul class="tags"><li>Python</li><li>TypeScript</li><li>LLM judge</li><li>Statistics</li></ul>
+        <a class="repo-link" href="https://github.com/jbmateo/rag-eval-lab" target="_blank" rel="noopener">View rag-eval-lab on GitHub</a>
+      </div>
+      <div class="shots">
+        <div class="screen"><img src="assets/evallab-overview.png" width="1400" height="900" loading="lazy" alt="RAG Eval Lab overview with headline numbers, a hypothesis scoreboard and charts"></div>
+      </div>
+    </article>
+    <article class="project">
+      <div>
+        <h4>RAG Studio</h4>
+        <p class="kind">Research project and web app, updated <time datetime="2026-10-19">19 Oct 2026</time></p>
+        <p class="summary">Question answering that answers only from your own documents, cites the exact passage, and refuses when the evidence is missing.</p>
+        <ul class="points">
+          <li>Hybrid retrieval combines vector search and BM25, with a relevance gate before any model call.</li>
+          <li>A second gate verifies every citation against the source before the answer is shown.</li>
+          <li>A research harness runs controlled experiments on the same pipeline over 60 labelled questions.</li>
+        </ul>
+        <ul class="tags"><li>Python</li><li>FastAPI</li><li>Next.js</li><li>SQLite FTS5</li><li>Claude API</li></ul>
+        <a class="repo-link" href="https://github.com/jbmateo/rag-studio" target="_blank" rel="noopener">View rag-studio on GitHub</a>
+      </div>
+      <div class="shots">
+        <div class="screen"><img src="assets/ragstudio-dashboard.png" width="1280" height="800" loading="lazy" alt="RAG Studio dashboard showing a question, an answer and numbered citations"></div>
+      </div>
+    </article>
+    </section>
+  </section>
+
+  <section class="wrap block" aria-labelledby="work">
+    <div class="section-head work-head">
+      <h2 id="work">Where I've worked</h2>
+      <p><a href="https://www.linkedin.com/in/johnbenedictmateo" target="_blank" rel="noopener">Full history on LinkedIn</a></p>
+    </div>
+    <ul class="jobs">
+      <li>
+        <p class="when">2025 to 2026</p>
+        <h3>Teamified</h3>
+        <p class="title">Senior Android Developer</p>
+        <p>Android work on Session for the client: Jetpack Compose migration, a modular MVVM architecture and a 30% smaller APK.</p>
+      </li>
+      <li>
+        <p class="when">2022 to 2025</p>
+        <h3>MetaverseGo</h3>
+        <p class="title">Senior Software Engineer</p>
+        <p>Main Android developer and owner of Google Play releases for a play-to-earn gaming platform. Also built PlayFriends in React Native.</p>
+      </li>
+      <li>
+        <p class="when">2016 to 2021</p>
+        <h3>AppVenture Inc.</h3>
+        <p class="title">Software Engineer</p>
+        <p>Android and web apps for clients, from intern to mid-level, including migrating legacy Java Android code to Kotlin.</p>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer class="cta">
+  <div class="wrap">
+    <h2>Get in touch</h2>
+    <p class="lead">Open to remote mobile and software engineering roles. Email is the fastest way to reach me.</p>
+    <a class="mail" href="mailto:jbmateo05@gmail.com">jbmateo05@gmail.com</a>
+    <ul class="cta-links">
+      <li><a href="https://github.com/jbmateo" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/johnbenedictmateo" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+    <p class="small">John Benedict Mateo, Cavite, Philippines</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('theme');
+    var saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved);
+    function isDark() {
+      var t = root.getAttribute('data-theme');
+      return t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    function label() { btn.textContent = isDark() ? 'Light mode' : 'Dark mode'; }
+    btn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      label();
+    });
+    label();
+  })();
+</script>
+</body>
+</html>
